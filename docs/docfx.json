@@ -1,0 +1,56 @@
+{
+  "metadata": [
+    {
+      "properties": {
+        "TargetFramework": "net8.0"
+      },
+      "src": [
+        {
+          "src": "..",
+          "files": [
+            "Badeend.Any/Badeend.Any.csproj"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "**/*.{md,yml}"
+        ],
+        "exclude": [
+          "rendered/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "rendered",
+    "template": [
+      "default",
+      "modern",
+      "template"
+    ],
+    "globalMetadata": {
+      "_appName": "Any",
+      "_appTitle": "Any",
+      "_appLogoPath": "images/logo-header.png",
+      "_appFaviconPath": "images/favicon.ico",
+      "_enableSearch": true,
+      "_disableToc": false,
+      "_gitContribute": {
+        "repo": "https://github.com/badeend/Any",
+        "branch": "main"
+      },
+      "pdf": false
+    }
+  }
+}
