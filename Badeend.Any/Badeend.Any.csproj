@@ -1,8 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <PackageId>Badeend.Any</PackageId>
-    <Description>TODO</Description>
-    <!-- <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks> -->
-    <TargetFrameworks>net5.0</TargetFrameworks>
+    <Description>Holds any value of any type, without boxing small structs (up to 8 bytes).</Description>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0;net6.0;net7.0</TargetFrameworks>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="4.5.0" Condition="'$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'netstandard2.1'" />
+  </ItemGroup>
 </Project>
