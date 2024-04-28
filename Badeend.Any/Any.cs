@@ -353,7 +353,8 @@ public readonly partial struct Any : IEquatable<Any>
 	internal T CastRequiredClass<T>()
 		where T : class
 	{
-		if (this.typeOrBoxedData is T typedData)
+		// FYI, `T` can be `object`, which matches any type including InlineType.
+		if (this.typeOrBoxedData is T typedData and not InlineType)
 		{
 			return typedData;
 		}
@@ -388,7 +389,8 @@ public readonly partial struct Any : IEquatable<Any>
 	internal T? CastNullableClass<T>()
 		where T : class
 	{
-		if (this.typeOrBoxedData is T typedData)
+		// FYI, `T` can be `object`, which matches any type including InlineType.
+		if (this.typeOrBoxedData is T typedData and not InlineType)
 		{
 			return typedData;
 		}
