@@ -424,14 +424,19 @@ public readonly partial struct Any : IEquatable<Any>
 	}
 
 	/// <summary>
-	/// Check if the two <see cref="Any"/> instances are the same.
+	/// Check if the two <see cref="Any"/> instances are identical.
 	///
-	/// This is performed by comparing the object references to the heap data
+	/// This is checked by comparing the object references to the heap data
 	/// and the raw bitpattern of the inlined struct data (if any).
 	///
 	/// It does <em>not</em> call the inner value's <c>.Equals</c> implementation.
 	/// </summary>
-	public static bool ReferenceEquals(Any left, Any right) => left.typeOrBoxedData == right.typeOrBoxedData && left.inlineData == right.inlineData;
+	/// <remarks>
+	/// This is the spiritual equivalent of <c>Object.ReferenceEquals(a, b)</c>,
+	/// but for <c>Any</c> instances.
+	/// </remarks>
+	[Pure]
+	public static bool AreIdentical(Any a, Any b) => a.typeOrBoxedData == b.typeOrBoxedData && a.inlineData == b.inlineData;
 
 	/// <summary>
 	/// Call the inner value's <c>.Equals</c> implementation.
