@@ -249,7 +249,6 @@ public readonly partial struct Any : IEquatable<Any>
 	/// <c>.As&lt;T&gt;()</c>, <c>.Is&lt;T&gt;()</c> and <c>.Cast&lt;T&gt;()</c>
 	/// extension methods.
 	/// </remarks>
-	[Pure]
 	public bool TryGetValue<T>([MaybeNullWhen(false)] out T value)
 		where T : notnull
 	{

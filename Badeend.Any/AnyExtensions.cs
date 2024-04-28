@@ -44,7 +44,6 @@ public static class AnyValueExtensions
 	/// if (any.Is(out int x)) { /* ... */ }
 	/// </code>
 	/// </summary>
-	[Pure]
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool Is<T>(this Any any, [MaybeNullWhen(false)] out T value)
 		where T : struct
@@ -171,7 +170,6 @@ public static class AnyReferenceExtensions
 	/// if (any.Is(out string x)) { /* ... */ }
 	/// </code>
 	/// </summary>
-	[Pure]
 	[MethodImpl(MethodImplOptions.AggressiveInlining)]
 	public static bool Is<T>(this Any any, [MaybeNullWhen(false)] out T value)
 		where T : class
