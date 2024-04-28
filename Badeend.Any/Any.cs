@@ -47,21 +47,24 @@ namespace Badeend;
 ///   <item><c>ValueTuple</c>s such as <c>(int, int)</c></item>
 /// </list>
 ///
+/// > [!TIP]
+/// > `Any` provides conversion operators for these (and more) BCL types;
+/// > _implicit_ operators for types that are known to be inlinable, and
+/// > _explicit_ operators for types that that require boxing.
+/// > Due to the large amount of them, they're not shown in the documentation.
+///
+/// <para>
 /// <see cref="Any"/> has a built-in representation for <c>null</c>, which can
-/// be checked for with <see cref="HasValue"/>. Because <c>Any</c> can already
-/// be null by itself, there's typically no need for having a nullable Any
+/// be checked for using <see cref="HasValue"/>. Because <c>Any</c> can already
+/// be "null" by itself, there's typically no need for having a nullable Any
 /// (<c>Any?</c> / <c>Nullable&lt;Any&gt;</c>), as that will result in
 /// "double" nullability.
+/// </para>
 ///
-/// <br/>
-///
+/// <para>
 /// The <c>default</c> value of <c>Any</c> is <c>null</c>.
+/// </para>
 ///
-/// <br/>
-///
-/// > [!TIP]
-/// > `Any` provides conversion operators from/to many BCL types, but those have
-/// > been hidden from the documentation due to the sheer amount of them.
 /// </remarks>
 public readonly partial struct Any : IEquatable<Any>
 {
@@ -508,12 +511,14 @@ public readonly partial struct Any : IEquatable<Any>
 
 	/// <summary>
 	/// Check for equality using the inner value's <c>.Equals</c> implementation.
+	/// See <see cref="Equals(Any)"/> for more information.
 	/// </summary>
 	[Pure]
 	public static bool operator ==(Any left, Any right) => left.Equals(right);
 
 	/// <summary>
 	/// Check for inequality using the inner value's <c>.Equals</c> implementation.
+	/// See <see cref="Equals(Any)"/> for more information.
 	/// </summary>
 	[Pure]
 	public static bool operator !=(Any left, Any right) => !left.Equals(right);
