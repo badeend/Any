@@ -3,3 +3,4 @@ obj
 /docs/rendered
 /docs/api
 /private
+lcov.*.info
