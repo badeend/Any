@@ -441,7 +441,7 @@ public readonly partial struct Any : IEquatable<Any>
 	/// but for <c>Any</c> instances.
 	/// </remarks>
 	[Pure]
-	public static bool AreIdentical(Any a, Any b) => a.typeOrBoxedData == b.typeOrBoxedData && a.inlineData == b.inlineData;
+	public static bool BitwiseEquals(Any a, Any b) => a.typeOrBoxedData == b.typeOrBoxedData && a.inlineData == b.inlineData;
 
 	/// <summary>
 	/// Call the inner value's <c>.Equals</c> implementation.

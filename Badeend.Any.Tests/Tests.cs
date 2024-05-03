@@ -42,9 +42,9 @@ public class Tests
 		AssertOk(123, Any.Create<int?>(123));
 		AssertOk(123, Any.Create<object>(123));
 
-		Assert.True(Any.AreIdentical(123, 123));
-		Assert.False(Any.AreIdentical(123, 987));
-		Assert.False(Any.AreIdentical(123, Any.Create<object>(123)));
+		Assert.True(Any.BitwiseEquals(123, 123));
+		Assert.False(Any.BitwiseEquals(123, 987));
+		Assert.False(Any.BitwiseEquals(123, Any.Create<object>(123)));
 
 		static void AssertOk(int expected, Any any)
 		{
@@ -127,8 +127,8 @@ public class Tests
 		Assert.True(a == b);
 		Assert.False(Object.ReferenceEquals(a, b));
 
-		Assert.True(Any.AreIdentical(a, a));
-		Assert.False(Any.AreIdentical(a, b));
+		Assert.True(Any.BitwiseEquals(a, a));
+		Assert.False(Any.BitwiseEquals(a, b));
 
 		static void AssertOk(string expected, Any any)
 		{
@@ -198,11 +198,11 @@ public class Tests
 		AssertOk(Any.Create<string?>(null));
 		AssertOk(Any.Create<object?>(null));
 
-		Assert.True(Any.AreIdentical(default, default));
-		Assert.True(Any.AreIdentical(default, Any.Create<int?>(null)));
-		Assert.True(Any.AreIdentical(default, Any.Create<object?>(null)));
-		Assert.False(Any.AreIdentical(default, string.Empty));
-		Assert.False(Any.AreIdentical(default, 0));
+		Assert.True(Any.BitwiseEquals(default, default));
+		Assert.True(Any.BitwiseEquals(default, Any.Create<int?>(null)));
+		Assert.True(Any.BitwiseEquals(default, Any.Create<object?>(null)));
+		Assert.False(Any.BitwiseEquals(default, string.Empty));
+		Assert.False(Any.BitwiseEquals(default, 0));
 
 		static void AssertOk(Any any)
 		{
@@ -410,7 +410,7 @@ public class Tests
 		Assert.Equal(left.Type, right.Type);
 
 		Assert.True(left == right);
-		Assert.True(Any.AreIdentical(left, right));
+		Assert.True(Any.BitwiseEquals(left, right));
 	}
 
 	private enum MyEnum
